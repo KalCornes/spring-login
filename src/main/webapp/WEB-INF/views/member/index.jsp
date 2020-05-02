@@ -6,8 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function popup(){
+		if("${cook}" == ""){
+			window.open("popup","","width=300,height=200,top=500,left=500");
+		}
+	}
+</script>
+
 </head>
-<body>
+<body onload="popup()">
 	<c:import url="../default/header.jsp" />
 	<c:import url="../default/main.jsp" />
 	<c:import url="../default/footer.jsp" />

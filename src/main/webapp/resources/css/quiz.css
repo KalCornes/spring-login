@@ -59,8 +59,8 @@ section {
 /* 헤더부분 */
 header {
 	text-align: center;
-	color: burlywood;
-	background-color: steelblue;
+	color: #400000;
+	background-color: #ff8040;
 	font-size: 60px;
 	display: block;
 	font-size: 60px;
@@ -79,8 +79,8 @@ Nav a {
 /* 풋터부분 */
 .footer font {
 	text-align: center;
-	font-size: 27px;
-	color: steelblue;
+	font-size: 30px;
+	color: pink;
 	display: block;
 	font-weight: bold;
 }

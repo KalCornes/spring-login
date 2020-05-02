@@ -10,7 +10,7 @@
 </head>
 <body>
   <header>
-    <font class="title" face="Agency FB">CARE LAB</font>
+    <font class="title" face="Gabriola">CARE LAB</font>
   </header>
   <hr>
   <Nav>

@@ -9,7 +9,7 @@
 </head>
 <body>
 	<c:import url="../default/header.jsp" />
-	<h1>로그인 성공 페이지 입니다.</h1>
+	<h1 align="center">로그인 성공 페이지 입니다.</h1>
 	<c:import url="../default/footer.jsp" />
 </body>
 </html>

@@ -2,13 +2,16 @@ package com.care.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -31,7 +34,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping("index")
-	public String index() {
+	public String index(HttpServletResponse response, Model model,
+			@CookieValue(value="myCookie",required=false) Cookie cook) {
+		if(cook != null )
+			model.addAttribute("cook",cook.getValue());
+		System.out.println(cook);
 		return "member/index";
 	}
 	
@@ -47,7 +54,7 @@ public class MemberController {
 		result = member.loginChk(model, request);
 		if (result) {
 			HttpSession session = request.getSession();
-			session.setAttribute("state", "Î°úÍ∑∏Ïù∏");
+			session.setAttribute("state", "∑Œ±◊¿Œ");
 			return "redirect:successLogin";
 		}
 		else {
@@ -89,5 +96,17 @@ public class MemberController {
 		model.addAttribute("pwd",request.getParameter("pwd"));
 		member.saveMember(request);
 		return "redirect:login";
+	}
+	@RequestMapping("popup")
+	public String popup() {
+		return "popup/popup";
+	}
+	@RequestMapping("cookieChk")
+	public void cookieChk(HttpServletResponse response) {
+		Cookie cook = new Cookie("myCookie", "≥™¿«ƒÌ≈∞");
+		cook.setMaxAge(10);
+		cook.setPath("/");
+		response.addCookie(cook);
+//		return "popup";
 	}
 }
